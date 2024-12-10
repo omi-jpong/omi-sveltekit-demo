@@ -1,0 +1,25 @@
+$blue-electric: #0030ff;
+$blue-azure: #96aaff;
+
+$white: #fbfff1;
+$black: #212227;
+
+@mixin theme {
+	--c-background: #{$white};
+	--c-text: #{$black};
+
+	--c-button-contained-background: #{$blue-electric};
+	--c-button-contained-text: #{$white};
+	--c-button-contained-border: #{$blue-electric};
+
+	--c-input-border: #{$blue-azure};
+	--c-input-border_hover: #{$blue-electric};
+	--c-input-text: #{$black};
+
+	--c-nav-border: #{$blue-azure};
+	--c-nav-text: #{$blue-electric};
+}
+
+@mixin font {
+	--ff-primary: 'Rubik', sans-serif;
+}
