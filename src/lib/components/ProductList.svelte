@@ -20,7 +20,7 @@
 					<h3><a href={`/products/${product.id}`}>{product.title}</a></h3>
 					<p>{product.description}</p>
 				</div>
-				<div class="cell price">{product.price}</div>
+				<div class="cell price">₱ {product.price}</div>
 			</div>
 		{/each}
 	</div>
