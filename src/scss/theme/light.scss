@@ -1,23 +1,31 @@
-$blue-electric: #0030ff;
-$blue-azure: #96aaff;
+$electric: #0030ff;
+$azure: #96aaff;
 
-$white: #fbfff1;
+$white: #ffffff;
+$ivory: #fbfff1;
 $black: #212227;
 
 @mixin theme {
-	--c-background: #{$white};
+	--c-background: #{$ivory};
 	--c-text: #{$black};
 
-	--c-button-contained-background: #{$blue-electric};
-	--c-button-contained-text: #{$white};
-	--c-button-contained-border: #{$blue-electric};
+	--c-button-contained-background: #{$electric};
+	--c-button-contained-text: #{$ivory};
+	--c-button-contained-border: #{$electric};
 
-	--c-input-border: #{$blue-azure};
-	--c-input-border_hover: #{$blue-electric};
+	--c-input-border: #{$azure};
+	--c-input-border_hover: #{$electric};
 	--c-input-text: #{$black};
 
-	--c-nav-border: #{$blue-azure};
-	--c-nav-text: #{$blue-electric};
+	--c-nav-border: #{$azure};
+	--c-nav-text: #{$electric};
+
+	--c-product-list-border: #{$azure};
+	--c-product-list-header-background: #{$electric};
+	--c-product-list-header-text: #{$ivory};
+	--c-product-list-body-background: #{$white};
+	--c-product-list-body-text: #{$black};
+	--c-product-list-body-text-title: #{$electric};
 }
 
 @mixin font {

@@ -7,3 +7,7 @@ export interface ButtonProps extends HTMLButtonAttributes {
 export interface InputFieldProps extends HTMLInputAttributes {
 	label?: string;
 }
+
+export interface ProductListProps {
+	products: ProductListItem[];
+}
