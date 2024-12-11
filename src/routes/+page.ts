@@ -1,23 +1,15 @@
+import { getProducts } from '$lib/api/products';
 import type { PageLoad } from './$types';
 
-interface ProductsResponse {
-	products: ProductListItem[];
-	total: number;
-	skip: number;
-	limit: number;
-}
-
-export const load: PageLoad = async ({ fetch }) => {
+export const load: PageLoad = async () => {
 	try {
-		const res = await fetch('https://dummyjson.com/products');
-		const data: ProductsResponse = await res.json();
+		const res = await getProducts({ search: 'Phone', page: 1 });
+		const data = res.data;
 		return data;
 	} catch {
 		return {
 			products: [],
-			total: 0,
-			skip: 0,
-			limit: 0
+			total: 0
 		};
 	}
 };
