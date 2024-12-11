@@ -74,6 +74,11 @@
 			font-size: 16px;
 			font-weight: 500;
 		}
+
+		div.cell.info,
+		div.cell.price {
+			padding: 20px 16px;
+		}
 	}
 
 	div.list-header {
