@@ -1,16 +1,12 @@
+import type {
+	IFetchProduct,
+	IFetchProducts,
+	ProductResponse,
+	ProductsResponse
+} from '$lib/types/api.types';
 import axios, { type AxiosResponse } from 'axios';
 
-interface IFetchProducts {
-	search: string;
-	page: number;
-}
-
-interface ProductsResponse {
-	products: ProductListItem[];
-	total: number;
-	skip: number;
-	limit: number;
-}
+const BASE_URL = 'https://dummyjson.com/products';
 
 export function fetchProducts({
 	search,
@@ -19,5 +15,9 @@ export function fetchProducts({
 	const limit = 10;
 	const skip = limit * (page - 1);
 	const params = { q: search, limit, skip };
-	return axios.get('https://dummyjson.com/products/search', { params });
+	return axios.get(`${BASE_URL}/search`, { params });
+}
+
+export function fetchProduct({ id }: IFetchProduct): Promise<AxiosResponse<ProductResponse>> {
+	return axios.get(`${BASE_URL}/${id}`);
 }

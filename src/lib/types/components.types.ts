@@ -12,6 +12,7 @@ export interface ProductListProps {
 	products: ProductListItem[];
 	currentPage: number;
 	total: number;
+	loading: boolean;
 	setPage: (page: number) => void;
 }
 
