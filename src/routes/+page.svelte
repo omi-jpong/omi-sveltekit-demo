@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fetchProducts } from '$lib/api/products';
 	import InputField from '$lib/components/InputField.svelte';
 	import ProductList from '$lib/components/ProductList.svelte';
@@ -7,13 +8,13 @@
 	let currentPage: number = $state(1);
 	let total: number = $state(0);
 	let products: ProductListItem[] = $state([]);
-	let initialLoad: boolean = $state(true);
+	let loading: boolean = $state(false);
 
 	let timeout: ReturnType<typeof setTimeout>;
 
 	async function getProducts(search: string, page: number = 1) {
 		try {
-			initialLoad = false;
+			loading = true;
 
 			const res = await fetchProducts({ search, page });
 
@@ -22,6 +23,8 @@
 			total = res.data.total;
 		} catch (error) {
 			products = [];
+		} finally {
+			loading = false;
 		}
 	}
 
@@ -32,22 +35,33 @@
 		}, 1000);
 	}
 
+	function handleSearchChange() {
+		debounceGetProducts(search);
+	}
+
 	function handlePageChange(newPage: number) {
 		getProducts(search, newPage);
 	}
 
-	$effect(() => {
-		initialLoad ? getProducts(search) : debounceGetProducts(search);
+	onMount(() => {
+		getProducts(search, currentPage);
 	});
 </script>
 
 <div class="container">
-	<InputField id="product" placeholder="Search product" bind:value={search} />
-	<ProductList {products} {currentPage} setPage={handlePageChange} {total} />
+	<InputField
+		id="product"
+		placeholder="Search product"
+		bind:value={search}
+		oninput={handleSearchChange}
+	/>
+	<ProductList {products} {currentPage} setPage={handlePageChange} {total} {loading} />
 </div>
 
 <style lang="scss">
 	div.container {
+		max-width: 720px;
+		margin: 0 auto;
 		display: flex;
 		flex-flow: column nowrap;
 		gap: 16px;
