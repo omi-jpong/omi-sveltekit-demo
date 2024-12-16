@@ -12,11 +12,12 @@
 <div class="container">
 	<div class="breadcrumbs"><a href="/">Home</a> &rsaquo; {product.title}</div>
 	{#if product}
-		<div class="product-summary">
+		<article class="product-summary">
 			<img src={product.thumbnail} alt={product.title} loading="lazy" />
+			<strong>₱ {product.price}</strong>
 			<h1>{product.title}</h1>
 			<p>{product.description}</p>
-		</div>
+		</article>
 	{/if}
 </div>
 
@@ -30,7 +31,7 @@
 		font-size: 12px;
 	}
 
-	div.product-summary {
+	article.product-summary {
 		& > img {
 			width: 100%;
 			height: 240px;

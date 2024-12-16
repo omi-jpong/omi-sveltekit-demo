@@ -48,6 +48,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Products Demo</title>
+</svelte:head>
+
 <div class="container">
 	<InputField
 		id="product"
