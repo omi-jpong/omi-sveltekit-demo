@@ -1,6 +1,6 @@
 import axios, { type AxiosResponse } from 'axios';
 
-interface IGetProducts {
+interface IFetchProducts {
 	search: string;
 	page: number;
 }
@@ -12,10 +12,10 @@ interface ProductsResponse {
 	limit: number;
 }
 
-export function getProducts({
+export function fetchProducts({
 	search,
 	page
-}: IGetProducts): Promise<AxiosResponse<ProductsResponse>> {
+}: IFetchProducts): Promise<AxiosResponse<ProductsResponse>> {
 	const limit = 10;
 	const skip = limit * (page - 1);
 	const params = { q: search, limit, skip };

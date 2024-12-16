@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { InputFieldProps } from '$lib/types/components.types';
 
-	const { label = '', id, ...props }: InputFieldProps = $props();
+	let { label = '', id, value = $bindable(), ...props }: InputFieldProps = $props();
 </script>
 
 <label for={id} class="input-field">
 	{#if label}
 		<span>{label}</span>
 	{/if}
-	<input {...props} {id} type="text" />
+	<input {...props} {id} type="text" bind:value />
 </label>
 
 <style lang="scss">
