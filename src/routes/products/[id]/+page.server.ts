@@ -1,8 +1,8 @@
 import { fetchProduct } from '$lib/api/products';
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	const id = params.id;
 
 	try {
