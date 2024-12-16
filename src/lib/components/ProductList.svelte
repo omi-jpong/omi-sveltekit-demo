@@ -4,7 +4,7 @@
 
 	const PAGE_SIZE = 10;
 
-	let { products, currentPage, setPage, total }: ProductListProps = $props();
+	let { products, currentPage, setPage, total, loading }: ProductListProps = $props();
 </script>
 
 <div class="product-list">
@@ -16,18 +16,22 @@
 		</div>
 	</div>
 	<div class="list-body">
-		{#each products as product (product.id)}
-			<div class="row">
-				<div class="cell thumbnail">
-					<img alt={product.title} src={product.thumbnail} loading="lazy" />
+		{#if loading}
+			<div class="row"><div class="cell loading">Fetching products...</div></div>
+		{:else}
+			{#each products as product (product.id)}
+				<div class="row">
+					<div class="cell thumbnail">
+						<img alt={product.title} src={product.thumbnail} loading="lazy" />
+					</div>
+					<div class="cell info">
+						<h3><a href={`/products/${product.id}`}>{product.title}</a></h3>
+						<p>{product.description}</p>
+					</div>
+					<div class="cell price">₱ {product.price}</div>
 				</div>
-				<div class="cell info">
-					<h3><a href={`/products/${product.id}`}>{product.title}</a></h3>
-					<p>{product.description}</p>
-				</div>
-				<div class="cell price">₱ {product.price}</div>
-			</div>
-		{/each}
+			{/each}
+		{/if}
 	</div>
 	<div class="product-footer">
 		<Pagination size={PAGE_SIZE} {currentPage} {total} {setPage} />
@@ -51,6 +55,12 @@
 			overflow-wrap: break-word;
 
 			font-size: 14px;
+
+			&.loading {
+				padding: 16px;
+				grid-column: 1/4;
+				text-align: center;
+			}
 		}
 
 		div.cell.thumbnail {
