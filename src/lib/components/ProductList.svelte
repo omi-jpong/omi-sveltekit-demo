@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { ProductListProps } from '$lib/types/components.types';
+	import Pagination from './Pagination.svelte';
 
-	const { products }: ProductListProps = $props();
+	const PAGE_SIZE = 10;
+
+	let { products, currentPage, setPage, total }: ProductListProps = $props();
 </script>
 
 <div class="product-list">
@@ -13,9 +16,11 @@
 		</div>
 	</div>
 	<div class="list-body">
-		{#each products as product}
+		{#each products as product (product.id)}
 			<div class="row">
-				<div class="cell thumbnail"><img alt={product.title} src={product.thumbnail} /></div>
+				<div class="cell thumbnail">
+					<img alt={product.title} src={product.thumbnail} loading="lazy" />
+				</div>
 				<div class="cell info">
 					<h3><a href={`/products/${product.id}`}>{product.title}</a></h3>
 					<p>{product.description}</p>
@@ -23,6 +28,9 @@
 				<div class="cell price">₱ {product.price}</div>
 			</div>
 		{/each}
+	</div>
+	<div class="product-footer">
+		<Pagination size={PAGE_SIZE} {currentPage} {total} {setPage} />
 	</div>
 </div>
 

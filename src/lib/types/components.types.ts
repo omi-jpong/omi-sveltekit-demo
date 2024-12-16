@@ -10,4 +10,14 @@ export interface InputFieldProps extends HTMLInputAttributes {
 
 export interface ProductListProps {
 	products: ProductListItem[];
+	currentPage: number;
+	total: number;
+	setPage: (page: number) => void;
+}
+
+export interface PaginationProps {
+	size: number;
+	currentPage: number;
+	total: number;
+	setPage: (page: number) => void;
 }
