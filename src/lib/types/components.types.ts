@@ -22,3 +22,11 @@ export interface PaginationProps {
 	total: number;
 	setPage: (page: number) => void;
 }
+
+export interface BreadcrumbsProps {
+	links: {
+		href: string;
+		label: string;
+	}[];
+	current: string;
+}

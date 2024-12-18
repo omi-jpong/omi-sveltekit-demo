@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fetchProducts } from '$lib/api/products';
 	import InputField from '$lib/components/InputField.svelte';
 	import ProductList from '$lib/components/ProductList.svelte';
+	import { productsServices } from '$lib/services/products.services';
+	import type { BreadcrumbsProps } from '$lib/types/components.types';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
+	const services = productsServices;
 
 	let search: string = $state('');
 	let currentPage: number = $state(1);
@@ -16,7 +20,7 @@
 		try {
 			loading = true;
 
-			const res = await fetchProducts({ search, page });
+			const res = await services.fetchProducts({ search, page });
 
 			products = res.data.products;
 			currentPage = page;
@@ -46,6 +50,11 @@
 	onMount(() => {
 		getProducts(search, currentPage);
 	});
+
+	const breadcrumbProps: BreadcrumbsProps = {
+		current: 'Products',
+		links: [{ href: '/', label: 'Home' }]
+	};
 </script>
 
 <svelte:head>
@@ -53,6 +62,7 @@
 </svelte:head>
 
 <div class="container">
+	<Breadcrumbs {...breadcrumbProps} />
 	<InputField
 		id="product"
 		placeholder="Search product"

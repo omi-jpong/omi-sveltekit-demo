@@ -1,8 +1,17 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import type { BreadcrumbsProps } from '$lib/types/components.types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 	const product = data.product;
+	const breadcrumbProps: BreadcrumbsProps = {
+		current: product.title,
+		links: [
+			{ href: '/', label: 'Home' },
+			{ href: '/products', label: 'Products' }
+		]
+	};
 </script>
 
 <svelte:head>
@@ -10,7 +19,7 @@
 </svelte:head>
 
 <div class="container">
-	<div class="breadcrumbs"><a href="/">Home</a> &rsaquo; {product.title}</div>
+	<Breadcrumbs {...breadcrumbProps} />
 	{#if product}
 		<article class="product-summary">
 			<img src={product.thumbnail} alt={product.title} loading="lazy" />
@@ -25,10 +34,6 @@
 	div.container {
 		max-width: 720px;
 		margin: 0 auto;
-	}
-
-	div.breadcrumbs {
-		font-size: 12px;
 	}
 
 	article.product-summary {
