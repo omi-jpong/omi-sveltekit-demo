@@ -6,7 +6,7 @@ const queries = mallsQueries;
 
 async function fetchMalls({ next }: IFetchMalls): Promise<MallsResponse> {
 	const filter = {
-		first: 5,
+		first: 10,
 		after: next
 	};
 	try {
