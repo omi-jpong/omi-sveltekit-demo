@@ -1,5 +1,6 @@
 <script lang="ts">
 	const links = [
+		{ id: 'home', href: '/', label: 'Home' },
 		{ id: 'products', href: '/products', label: 'Products' },
 		{ id: 'malls', href: '/malls', label: 'Malls' }
 	];
@@ -7,7 +8,7 @@
 
 <nav class="nav">
 	<div class="container">
-		<h1>Products Demo</h1>
+		<h1>SvelteKit Demo</h1>
 		<ul class="menu">
 			{#each links as link (link.id)}
 				<li>

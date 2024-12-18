@@ -58,7 +58,7 @@
 </script>
 
 <svelte:head>
-	<title>Products Demo</title>
+	<title>SvelteKit Demo | Products</title>
 </svelte:head>
 
 <div class="container">

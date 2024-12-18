@@ -35,6 +35,10 @@
 	const enableNextButton = $derived(!loading && hasNext);
 </script>
 
+<svelte:head>
+	<title>SvelteKit Demo | Malls</title>
+</svelte:head>
+
 <div class="container">
 	<Breadcrumbs {...breadcrumbProps} />
 	<MallList {malls} onNext={handleMallsListNext} {enableNextButton} />
