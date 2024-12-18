@@ -76,6 +76,7 @@
 	div.container {
 		max-width: 720px;
 		margin: 0 auto;
+
 		display: flex;
 		flex-flow: column nowrap;
 		gap: 16px;

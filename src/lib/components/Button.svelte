@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { ButtonProps } from '$lib/types/components.types';
 
-	const { label, ...props }: ButtonProps = $props();
+	const { label, maxWidth = false, ...props }: ButtonProps = $props();
+	const classes = ['btn', 'contained', maxWidth && 'maxWidth'].filter((c) => c).join(' ');
 </script>
 
-<button {...props} class="btn contained">
+<button {...props} class={classes}>
 	<span>{label}</span>
 </button>
 
@@ -51,6 +52,14 @@
 
 		&:active {
 			filter: contrast(1.5);
+		}
+
+		&.maxWidth {
+			width: 100%;
+		}
+
+		&:disabled {
+			opacity: 0.5;
 		}
 	}
 </style>

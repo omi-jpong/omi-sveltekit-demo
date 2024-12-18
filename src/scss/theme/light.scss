@@ -26,6 +26,13 @@ $black: #212227;
 	--c-product-list-body-background: #{$white};
 	--c-product-list-body-text: #{$black};
 	--c-product-list-body-text-title: #{$electric};
+
+	--c-mall-list-background: #{$white};
+	--c-mall-list-text: #{$black};
+	--c-mall-list-border: #{$azure};
+	--c-mall-list-button-background: #{$white};
+	--c-mall-list-button-background_hover: #{$azure};
+	--c-mall-list-button-text: #{$electric};
 }
 
 @mixin font {
