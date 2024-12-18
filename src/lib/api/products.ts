@@ -4,9 +4,8 @@ import type {
 	ProductResponse,
 	ProductsResponse
 } from '$lib/types/api.types';
-import axios, { type AxiosResponse } from 'axios';
-
-const BASE_URL = 'https://dummyjson.com/products';
+import type { AxiosResponse } from 'axios';
+import axiosClient from './clients/axios';
 
 export function fetchProducts({
 	search,
@@ -15,9 +14,9 @@ export function fetchProducts({
 	const limit = 10;
 	const skip = limit * (page - 1);
 	const params = { q: search, limit, skip };
-	return axios.get(`${BASE_URL}/search`, { params });
+	return axiosClient.get(`/products/search`, { params });
 }
 
 export function fetchProduct({ id }: IFetchProduct): Promise<AxiosResponse<ProductResponse>> {
-	return axios.get(`${BASE_URL}/${id}`);
+	return axiosClient.get(`/products/${id}`);
 }
