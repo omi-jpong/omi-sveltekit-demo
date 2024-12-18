@@ -2,6 +2,7 @@ import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements'
 
 export interface ButtonProps extends HTMLButtonAttributes {
 	label: string;
+	maxWidth?: boolean;
 }
 
 export interface InputFieldProps extends HTMLInputAttributes {
@@ -29,4 +30,10 @@ export interface BreadcrumbsProps {
 		label: string;
 	}[];
 	current: string;
+}
+
+export interface MallListProps {
+	malls: MallListItem[];
+	onNext: () => void;
+	enableNextButton: boolean;
 }
