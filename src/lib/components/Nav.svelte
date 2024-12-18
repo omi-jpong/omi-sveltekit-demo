@@ -30,6 +30,7 @@
 		height: 60px;
 
 		margin: 0 auto;
+		padding: 0 20px;
 
 		display: flex;
 		align-items: center;
