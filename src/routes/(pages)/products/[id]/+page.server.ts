@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { productsServices } from '$lib/services/products.services';
+import { productsServices } from '$services/products.services';
 
 const services = productsServices;
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InputFieldProps } from '$lib/types/components.types';
+	import type { InputFieldProps } from '$types/components.types';
 
 	let { label = '', id, value = $bindable(), ...props }: InputFieldProps = $props();
 </script>

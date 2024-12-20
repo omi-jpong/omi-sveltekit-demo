@@ -1,6 +1,6 @@
 import gqlClient from './clients/graphql';
-import { mallsQueries } from './queries/malls.queries';
-import type { FetchMallsQuery, IFetchMalls, MallsResponse } from '$lib/types/services.types';
+import { mallsQueries } from '$constants/queries/malls.queries';
+import type { FetchMallsQuery, IFetchMalls, MallsResponse } from '$types/services.types';
 
 const queries = mallsQueries;
 

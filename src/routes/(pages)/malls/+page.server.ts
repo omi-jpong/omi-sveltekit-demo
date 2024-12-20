@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { mallsServices } from '$lib/services/malls.services';
+import { mallsServices } from '$services/malls.services';
 import type { PageServerLoad } from './$types';
 
 const services = mallsServices;

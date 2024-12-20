@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	import MallList from '$lib/components/MallList.svelte';
-	import { mallsServices } from '$lib/services/malls.services';
-	import type { BreadcrumbsProps } from '$lib/types/components.types';
+	import Breadcrumbs from '$components/Breadcrumbs.svelte';
+	import MallList from '$components/MallList.svelte';
+	import { mallsServices } from '$services/malls.services';
+	import type { BreadcrumbsProps } from '$types/components.types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-	import type { BreadcrumbsProps } from '$lib/types/components.types';
+	import Breadcrumbs from '$components/Breadcrumbs.svelte';
+	import type { BreadcrumbsProps } from '$types/components.types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

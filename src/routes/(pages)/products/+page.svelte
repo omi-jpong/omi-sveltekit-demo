@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import InputField from '$lib/components/InputField.svelte';
-	import ProductList from '$lib/components/ProductList.svelte';
-	import { productsServices } from '$lib/services/products.services';
-	import type { BreadcrumbsProps } from '$lib/types/components.types';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+	import InputField from '$components/InputField.svelte';
+	import ProductList from '$components/ProductList.svelte';
+	import { productsServices } from '$services/products.services';
+	import type { BreadcrumbsProps } from '$types/components.types';
+	import Breadcrumbs from '$components/Breadcrumbs.svelte';
 
 	const services = productsServices;
 

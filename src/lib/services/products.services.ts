@@ -3,7 +3,7 @@ import type {
 	IFetchProducts,
 	ProductResponse,
 	ProductsResponse
-} from '$lib/types/services.types';
+} from '$types/services.types';
 import type { AxiosResponse } from 'axios';
 import axiosClient from './clients/axios';
 

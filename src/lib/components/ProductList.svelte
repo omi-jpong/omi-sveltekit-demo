@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ProductListProps } from '$lib/types/components.types';
+	import type { ProductListProps } from '$types/components.types';
 	import Pagination from './Pagination.svelte';
 
 	const PAGE_SIZE = 10;

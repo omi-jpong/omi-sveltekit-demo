@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ButtonProps } from '$lib/types/components.types';
+	import type { ButtonProps } from '$types/components.types';
 
 	const { label, maxWidth = false, ...props }: ButtonProps = $props();
 	const classes = ['btn', 'contained', maxWidth && 'maxWidth'].filter((c) => c).join(' ');
