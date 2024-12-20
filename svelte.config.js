@@ -17,7 +17,7 @@ const config = {
 			$constants: './src/lib/constants',
 			$server: './src/lib/server',
 			$services: './src/lib/services',
-			$scss: './src/scss',
+			$scss: './src/lib/scss',
 			$types: './src/lib/types',
 			$utils: './src/lib/utils'
 		}

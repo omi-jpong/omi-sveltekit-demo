@@ -3,7 +3,7 @@ import type { AxiosResponse } from 'axios';
 import type { IFetchProduct, IFetchProducts, ProductResponse, ProductsResponse } from './types';
 
 function fetchProducts({ search, page }: IFetchProducts): Promise<AxiosResponse<ProductsResponse>> {
-	const params = { search, page };
+	const params = { q: search, limit: 10, skip: (page - 1) * 10 };
 	return axiosClient.get(`/products/search`, {
 		params
 	});
