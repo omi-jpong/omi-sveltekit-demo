@@ -9,7 +9,7 @@ declare global {
 		// interface Platform {}
 	}
 
-	interface ProductListItem {
+	interface Product {
 		id: number;
 		title: string;
 		description: string;
@@ -18,7 +18,7 @@ declare global {
 		thumbnail: string;
 	}
 
-	interface MallListItem {
+	interface Mall {
 		id: string;
 		name: string;
 		code: string;

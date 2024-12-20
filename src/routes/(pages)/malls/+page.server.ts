@@ -1,13 +1,11 @@
 import { error } from '@sveltejs/kit';
-import { mallsServices } from '$services/malls.services';
+import { serverServices } from '$services/server';
 import type { PageServerLoad } from './$types';
-
-const services = mallsServices;
 
 export const load: PageServerLoad = async () => {
 	try {
-		const data = await services.fetchMalls({ next: '' });
-		return { malls: data.malls, next: data.next, hasNext: data.hasNext };
+		const data = await serverServices.malls.fetchMalls({ next: '', limit: 10 });
+		return { malls: data.malls, next: data.next };
 	} catch (err) {
 		return error(400, (err as Error).message);
 	}

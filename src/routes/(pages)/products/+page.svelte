@@ -1,35 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import InputField from '$components/InputField.svelte';
 	import ProductList from '$components/ProductList.svelte';
-	import { productsServices } from '$services/products.services';
-	import type { BreadcrumbsProps } from '$types/components.types';
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
+	import type { BreadcrumbsProps } from '$components/types';
+	import type { PageData } from './$types';
 
-	const services = productsServices;
+	let { data: pageData }: { data: PageData } = $props();
 
-	let search: string = $state('');
-	let currentPage: number = $state(1);
-	let total: number = $state(0);
-	let products: ProductListItem[] = $state([]);
+	let search: string = $state(pageData.search);
 	let loading: boolean = $state(false);
 
 	let timeout: ReturnType<typeof setTimeout>;
 
+	const products: Product[] = $derived(pageData.products);
+	const total: number = $derived(pageData.total);
+	const currentPage: number = $derived(pageData.page);
+
 	async function getProducts(search: string, page: number = 1) {
-		try {
-			loading = true;
-
-			const res = await services.fetchProducts({ search, page });
-
-			products = res.data.products;
-			currentPage = page;
-			total = res.data.total;
-		} catch (error) {
-			products = [];
-		} finally {
-			loading = false;
-		}
+		loading = true;
+		await goto(`/products?page=${page}&search=${search}`);
+		loading = false;
 	}
 
 	function debounceGetProducts(search: string) {

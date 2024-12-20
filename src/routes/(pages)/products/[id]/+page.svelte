@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
-	import type { BreadcrumbsProps } from '$types/components.types';
+	import type { BreadcrumbsProps } from '$components/types';
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
-	const product = data.product;
+	let { data: pageData }: { data: PageData } = $props();
+	const product = pageData.product;
 	const breadcrumbProps: BreadcrumbsProps = {
 		current: product.title,
 		links: [

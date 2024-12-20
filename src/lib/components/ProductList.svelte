@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ProductListProps } from '$types/components.types';
+	import type { ProductListProps } from './types';
 	import Pagination from './Pagination.svelte';
 
 	const PAGE_SIZE = 10;
@@ -18,6 +18,8 @@
 	<div class="list-body">
 		{#if loading}
 			<div class="row"><div class="cell loading">Fetching products...</div></div>
+		{:else if products.length === 0}
+			<div class="row"><div class="cell loading">No products found</div></div>
 		{:else}
 			{#each products as product (product.id)}
 				<div class="row">

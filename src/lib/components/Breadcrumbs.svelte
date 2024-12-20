@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { BreadcrumbsProps } from '$types/components.types';
+	import type { BreadcrumbsProps } from './types';
 
 	let { current, links }: BreadcrumbsProps = $props();
 </script>

@@ -16,28 +16,31 @@ export interface IFetchProducts {
 }
 
 export interface ProductsResponse {
-	products: ProductListItem[];
+	products: Product[];
 	total: number;
 	skip: number;
 	limit: number;
+	message?: string;
 }
 
 export interface IFetchProduct {
 	id: string | number;
 }
 
-export type ProductResponse = ProductListItem;
+export interface ProductResponse extends Product {
+	message?: string;
+}
 
 export interface IFetchMalls {
 	next: string;
+	limit: number;
 }
 
 export interface FetchMallsQuery {
-	malls: { pageInfo: PageInfo; totalCount: number; edges: Edge<MallListItem>[] };
+	malls: { pageInfo: PageInfo; totalCount: number; edges: Edge<Mall>[] };
 }
 
 export interface MallsResponse {
-	malls: MallListItem[];
-	next: string;
-	hasNext: boolean;
+	malls: Mall[];
+	next: string | null;
 }

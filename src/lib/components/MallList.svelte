@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MallListProps } from '$types/components.types';
+	import type { MallListProps } from './types';
 	import Button from './Button.svelte';
 
 	let { malls, onNext, enableNextButton }: MallListProps = $props();

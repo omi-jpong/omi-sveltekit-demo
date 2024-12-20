@@ -1,16 +1,18 @@
 import { error } from '@sveltejs/kit';
+import { serverServices } from '$services/server';
 import type { PageServerLoad } from './$types';
-import { productsServices } from '$services/products.services';
 
-const services = productsServices;
+export const load: PageServerLoad = async ({ params, setHeaders }) => {
+	setHeaders({ 'Cache-Control': 'max-age=60' });
 
-export const load: PageServerLoad = async ({ params }) => {
 	const id = params.id;
 
 	try {
-		const res = await services.fetchProduct({ id });
-		return { product: res.data };
+		const res = await serverServices.products.fetchProduct({ id });
+		return {
+			product: res.data
+		};
 	} catch {
-		return error(404);
+		return error(500);
 	}
 };

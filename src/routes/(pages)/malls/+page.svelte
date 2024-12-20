@@ -1,26 +1,25 @@
 <script lang="ts">
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
 	import MallList from '$components/MallList.svelte';
-	import { mallsServices } from '$services/malls.services';
-	import type { BreadcrumbsProps } from '$types/components.types';
+	import { clientServices } from '$services/client';
+	import type { BreadcrumbsProps } from '$components/types';
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	let { data: pageData }: { data: PageData } = $props();
 
-	let malls: MallListItem[] = $state(data.malls);
-	let next: string = $state(data.next);
-	let hasNext: boolean = $state(data.hasNext);
+	let malls: Mall[] = $state(pageData.malls);
+	let next: string = $state(pageData.next || '');
+	let hasNext: boolean = $derived(!!pageData.next);
 	let loading: boolean = $state(false);
 
 	async function handleMallsListNext() {
 		try {
 			loading = true;
 
-			const data = await mallsServices.fetchMalls({ next });
+			const data = await clientServices.malls.fetchMalls({ next });
 			malls = [...malls, ...data.malls];
-			next = data.next;
-			hasNext = data.hasNext;
-		} catch {
+			next = data.next || '';
+		} catch (error) {
 			window.alert('Something went wrong');
 		} finally {
 			loading = false;
