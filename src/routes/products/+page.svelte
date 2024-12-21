@@ -6,7 +6,6 @@
 	import ProductList from '$features/products/ui/ProductList.svelte';
 	import type { PageData } from './$types';
 	import type { BreadcrumbsProps } from '$components/types';
-	import type { Product } from '$features/products/models/lib';
 
 	let { data: pageData }: { data: PageData } = $props();
 

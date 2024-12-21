@@ -1,5 +1,3 @@
-import type { Product } from './lib';
-
 export interface ProductListProps {
 	products: Product[];
 	currentPage: number;

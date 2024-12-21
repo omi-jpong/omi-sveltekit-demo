@@ -6,7 +6,7 @@ import type {
 	FetchProductsParams,
 	FetchProductData,
 	FetchProductsData
-} from '../models/lib';
+} from '../models/services';
 
 function fetchProducts({
 	search,

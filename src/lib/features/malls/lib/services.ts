@@ -1,6 +1,6 @@
 import gqlClient from '$lib/config/server/graphql';
 import { mallsQueries } from './queries';
-import type { FetchMallsRawData, FetchMallsParams, FetchMallsData } from '../models/lib';
+import type { FetchMallsRawData, FetchMallsParams, FetchMallsData } from '../models/services';
 
 async function fetchMalls({ next, limit }: FetchMallsParams): Promise<FetchMallsData> {
 	try {

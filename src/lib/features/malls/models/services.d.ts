@@ -1,17 +1,3 @@
-export interface Mall {
-	id: string;
-	name: string;
-	code: string;
-	provinceCode: string;
-	provinceName: string;
-	mobileNo: string;
-	telephoneNo: string;
-	serviceArea: string;
-	mallOpening: string;
-	mallClosing: string;
-	isServiceable: boolean;
-}
-
 export interface FetchMallsParams {
 	next: string;
 	limit: number;

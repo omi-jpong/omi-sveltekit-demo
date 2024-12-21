@@ -1,5 +1,5 @@
 import axiosClient from '$lib/config/client/axios';
-import { MALL_LIST_SIZE } from '../lib/constants';
+import { MALL_LIST_SIZE } from './constants';
 import type { AxiosResponse } from 'axios';
 import type { GetMallsData, GetMallsParams } from '../models/api';
 

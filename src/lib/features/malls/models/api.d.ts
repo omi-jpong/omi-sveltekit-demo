@@ -1,5 +1,3 @@
-import type { Mall } from './lib';
-
 export interface GetMallsParams {
 	next: string;
 }

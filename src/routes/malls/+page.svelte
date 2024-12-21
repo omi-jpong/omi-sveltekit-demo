@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Breadcrumbs from '$components/Breadcrumbs.svelte';
-	import { mallsApi } from '$features/malls/api';
+	import { mallsApi } from '$features/malls/lib/api';
 	import MallList from '$features/malls/ui/MallList.svelte';
 	import type { PageData } from './$types';
 	import type { BreadcrumbsProps } from '$components/types';
-	import type { Mall } from '$features/malls/models/lib';
 
 	let { data: pageData }: { data: PageData } = $props();
 

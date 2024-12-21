@@ -1,12 +1,3 @@
-export interface Product {
-	id: number;
-	title: string;
-	description: string;
-	category: string;
-	price: number;
-	thumbnail: string;
-}
-
 export interface FetchProductsParams {
 	search: string;
 	page: number;
