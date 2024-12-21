@@ -9,14 +9,6 @@ export interface InputFieldProps extends HTMLInputAttributes {
 	label?: string;
 }
 
-export interface ProductListProps {
-	products: Product[];
-	currentPage: number;
-	total: number;
-	loading: boolean;
-	setPage: (page: number) => void;
-}
-
 export interface PaginationProps {
 	size: number;
 	currentPage: number;
@@ -30,10 +22,4 @@ export interface BreadcrumbsProps {
 		label: string;
 	}[];
 	current: string;
-}
-
-export interface MallListProps {
-	malls: Mall[];
-	onNext: () => void;
-	enableNextButton: boolean;
 }

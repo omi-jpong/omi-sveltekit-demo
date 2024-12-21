@@ -2,10 +2,9 @@
 	import type { ButtonProps } from './types';
 
 	const { label, maxWidth = false, ...props }: ButtonProps = $props();
-	const classes = ['btn', 'contained', maxWidth && 'maxWidth'].filter((c) => c).join(' ');
 </script>
 
-<button {...props} class={classes}>
+<button {...props} class="btn contained" class:maxWidth>
 	<span>{label}</span>
 </button>
 

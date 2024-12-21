@@ -9,27 +9,16 @@ declare global {
 		// interface Platform {}
 	}
 
-	interface Product {
-		id: number;
-		title: string;
-		description: string;
-		category: string;
-		price: number;
-		thumbnail: string;
+	interface PageInfo {
+		hasNextPage: boolean;
+		hasPreviousPage: boolean;
+		startCursor: string;
+		endCursor: string;
 	}
 
-	interface Mall {
-		id: string;
-		name: string;
-		code: string;
-		provinceCode: string;
-		provinceName: string;
-		mobileNo: string;
-		telephoneNo: string;
-		serviceArea: string;
-		mallOpening: string;
-		mallClosing: string;
-		isServiceable: boolean;
+	interface Edge<T> {
+		cursor: string;
+		node: T;
 	}
 }
 
