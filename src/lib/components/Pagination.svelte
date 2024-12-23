@@ -2,7 +2,7 @@
 	import { LightPaginationNav } from 'svelte-paginate';
 	import type { PaginationProps } from './types';
 
-	let { currentPage, size, total, setPage }: PaginationProps = $props();
+	const { currentPage, size, total, setPage }: PaginationProps = $props();
 </script>
 
 <LightPaginationNav
