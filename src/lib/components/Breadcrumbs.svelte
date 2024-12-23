@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { BreadcrumbsProps } from './types';
 
-	let { current, links }: BreadcrumbsProps = $props();
+	const { current, links }: BreadcrumbsProps = $props();
 </script>
 
 <div class="breadcrumbs">
-	{#each links as link}
+	{#each links as link (link.href)}
 		<a href={link.href}>{link.label}</a> &rsaquo; {' '}
 	{/each}
 	{' ' + current}
