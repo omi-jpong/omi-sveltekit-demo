@@ -4,7 +4,7 @@
 	const { label, maxWidth = false, ...props }: ButtonProps = $props();
 </script>
 
-<button {...props} class="btn contained" class:maxWidth>
+<button {...props} class="btn contained" class:max-width={maxWidth}>
 	<span>{label}</span>
 </button>
 
@@ -53,7 +53,7 @@
 			filter: contrast(1.5);
 		}
 
-		&.maxWidth {
+		&.max-width {
 			width: 100%;
 		}
 
