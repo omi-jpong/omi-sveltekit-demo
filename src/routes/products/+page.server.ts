@@ -5,8 +5,8 @@ import type { PageServerLoad } from './$types';
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	setHeaders({ 'Cache-Control': 'max-age=60' });
 
-	const page = parseInt(url.searchParams.get('page') || '1') || 1;
 	const search = url.searchParams.get('search') || '';
+	const page = Number(url.searchParams.get('page')) || 1;
 
 	try {
 		const res = await productsServices.fetchProducts({ page, search });

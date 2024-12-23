@@ -6,7 +6,7 @@ export const GET: RequestHandler = async ({ setHeaders, url }) => {
 	setHeaders({ 'Cache-Control': 'max-age=3600' });
 
 	const next = url.searchParams.get('next') || '';
-	const limit = parseInt(url.searchParams.get('limit') || '10') || MALL_LIST_SIZE;
+	const limit = Number(url.searchParams.get('limit')) || MALL_LIST_SIZE;
 
 	try {
 		const data = await mallsServices.fetchMalls({ next, limit });
