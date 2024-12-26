@@ -17,6 +17,8 @@
 	<div class="list-body">
 		{#if loading}
 			<div class="row"><div class="cell loading">Fetching products...</div></div>
+		{:else if products.length === 0 && total > 0}
+			<div class="row"><div class="cell loading">No products found on this page</div></div>
 		{:else if products.length === 0}
 			<div class="row"><div class="cell loading">No products found</div></div>
 		{:else}
@@ -34,9 +36,11 @@
 			{/each}
 		{/if}
 	</div>
-	<div class="product-footer">
-		<Pagination size={PRODUCT_LIST_SIZE} {currentPage} {total} {setPage} />
-	</div>
+	{#if total > 0}
+		<div class="product-footer">
+			<Pagination size={PRODUCT_LIST_SIZE} {currentPage} {total} {setPage} />
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">

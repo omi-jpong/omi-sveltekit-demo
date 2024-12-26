@@ -27,7 +27,7 @@
 	function debounceGetProducts(search: string) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
-			getProducts(search, currentPage);
+			getProducts(search);
 		}, 1000);
 	}
 

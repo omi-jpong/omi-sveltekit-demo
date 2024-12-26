@@ -15,11 +15,10 @@
 	async function handleMallsListNext() {
 		try {
 			loading = true;
-
 			const data = await mallsApi.getMalls({ next });
 			malls = [...malls, ...data.malls];
 			next = data.next || '';
-		} catch (error) {
+		} catch {
 			window.alert('Something went wrong');
 		} finally {
 			loading = false;

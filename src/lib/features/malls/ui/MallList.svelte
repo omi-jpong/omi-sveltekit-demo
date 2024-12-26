@@ -2,7 +2,7 @@
 	import Button from '$components/Button.svelte';
 	import type { MallListProps } from '../models/ui';
 
-	let { malls, onNext, enableNextButton }: MallListProps = $props();
+	const { malls, onNext, enableNextButton }: MallListProps = $props();
 </script>
 
 <ul class="mall-list">
