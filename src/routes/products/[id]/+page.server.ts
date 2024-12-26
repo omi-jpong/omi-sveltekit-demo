@@ -8,9 +8,9 @@ export const load: PageServerLoad = async ({ params, setHeaders }) => {
 	const id = params.id;
 
 	try {
-		const res = await productsServices.fetchProduct({ id });
+		const data = await productsServices.fetchProduct({ id });
 		return {
-			product: res.data
+			product: data
 		};
 	} catch {
 		return error(500);

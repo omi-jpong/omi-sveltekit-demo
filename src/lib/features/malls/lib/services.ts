@@ -14,7 +14,7 @@ async function fetchMalls({ next, limit }: FetchMallsParams): Promise<FetchMalls
 			next: data.malls.pageInfo.hasNextPage ? data.malls.pageInfo.endCursor : null
 		};
 	} catch {
-		throw new Error('Something went wrong');
+		throw new Error('Failed to fetch malls');
 	}
 }
 

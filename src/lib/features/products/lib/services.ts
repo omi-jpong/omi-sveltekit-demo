@@ -8,18 +8,25 @@ import type {
 	FetchProductsData
 } from '../models/services';
 
-function fetchProducts({
-	search,
-	page
-}: FetchProductsParams): Promise<AxiosResponse<FetchProductsData>> {
-	const params = { q: search, limit: PRODUCT_LIST_SIZE, skip: (page - 1) * PRODUCT_LIST_SIZE };
-	return axiosServer.get(`/products/search`, {
-		params
-	});
+async function fetchProducts({ search, page }: FetchProductsParams): Promise<FetchProductsData> {
+	try {
+		const params = { q: search, limit: PRODUCT_LIST_SIZE, skip: (page - 1) * PRODUCT_LIST_SIZE };
+		const res: AxiosResponse<FetchProductsData> = await axiosServer.get(`/products/search`, {
+			params
+		});
+		return res.data;
+	} catch {
+		throw new Error('Failed to fetch products');
+	}
 }
 
-function fetchProduct({ id }: FetchProductParams): Promise<AxiosResponse<FetchProductData>> {
-	return axiosServer.get(`/products/${id}`);
+async function fetchProduct({ id }: FetchProductParams): Promise<FetchProductData> {
+	try {
+		const res: AxiosResponse<FetchProductData> = await axiosServer.get(`/products/${id}`);
+		return res.data;
+	} catch {
+		throw new Error('Failed to fetch product');
+	}
 }
 
 export const productsServices = {

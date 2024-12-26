@@ -9,10 +9,10 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	const page = Number(url.searchParams.get('page')) || 1;
 
 	try {
-		const res = await productsServices.fetchProducts({ page, search });
+		const data = await productsServices.fetchProducts({ page, search });
 		return {
-			products: res.data.products,
-			total: res.data.total,
+			products: data.products,
+			total: data.total,
 			page,
 			search
 		};
